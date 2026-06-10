@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Portfolio Mahasiswa</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#020617;
+    color:white;
+}
+
+/* NAVBAR */
+
+nav{
+    position:fixed;
+    width:100%;
+    top:0;
+    left:0;
+
+    padding:20px 8%;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    background:rgba(2,6,23,.8);
+    backdrop-filter:blur(15px);
+
+    z-index:999;
+}
+
+.logo{
+    font-size:30px;
+    color:#38bdf8;
+    font-weight:700;
+}
+
+nav ul{
+    display:flex;
+    list-style:none;
+    gap:35px;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+}
+
+nav a:hover{
+    color:#38bdf8;
+}
+
+/* HERO */
+
+.hero{
+    min-height:100vh;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    gap:60px;
+
+    padding:120px 10% 80px;
+}
+
+.hero img{
+    width:280px;
+    height:280px;
+
+    border-radius:50%;
+
+    object-fit:cover;
+
+    /* Posisi wajah */
+    object-position:center 15%;
+
+    border:5px solid #38bdf8;
+
+    box-shadow:
+    0 0 25px #38bdf8,
+    0 0 50px rgba(56,189,248,.4);
+}
+
+.hero-text h1{
+    font-size:55px;
+}
+
+.hero-text span{
+    color:#38bdf8;
+}
+
+.hero-text p{
+    margin-top:15px;
+    max-width:550px;
+    color:#cbd5e1;
+    line-height:1.8;
+}
+
+/* SECTION */
+
+section{
+    padding:100px 10%;
+}
+
+.title{
+    text-align:center;
+    font-size:45px;
+    margin-bottom:50px;
+}
+
+.title span{
+    color:#38bdf8;
+}
+
+/* BIODATA */
+
+.glass{
+    background:rgba(255,255,255,.04);
+
+    border:1px solid rgba(56,189,248,.15);
+
+    border-radius:25px;
+
+    backdrop-filter:blur(15px);
+
+    padding:35px;
+}
+
+.bio-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:20px;
+}
+
+.bio-item{
+    background:rgba(255,255,255,.03);
+    padding:20px;
+    border-radius:15px;
+}
+
+/* SKILL */
+
+.skill-sub{
+    text-align:center;
+    color:#38bdf8;
+    letter-spacing:3px;
+    margin-bottom:10px;
+}
+
+.skill-desc{
+    text-align:center;
+    max-width:700px;
+    margin:auto;
+    color:#cbd5e1;
+    margin-bottom:50px;
+}
+
+.skills-container{
+
+    max-width:1100px;
+    margin:auto;
+
+    background:rgba(255,255,255,.04);
+
+    border-radius:30px;
+
+    padding:40px;
+
+    border:1px solid rgba(56,189,248,.15);
+
+    backdrop-filter:blur(20px);
+}
+
+.skill-item{
+    display:flex;
+    align-items:center;
+    gap:25px;
+
+    padding:30px 0;
+
+    border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.skill-item:last-child{
+    border-bottom:none;
+}
+
+.icon-circle{
+    width:85px;
+    height:85px;
+
+    border-radius:50%;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    background:rgba(255,255,255,.05);
+
+    border:1px solid rgba(56,189,248,.2);
+
+    box-shadow:
+    0 0 15px rgba(56,189,248,.4),
+    0 0 30px rgba(56,189,248,.2);
+}
+
+.icon-circle img{
+    width:50px;
+    height:50px;
+    object-fit:contain;
+}
+
+.skill-content{
+    flex:1;
+}
+
+.skill-header{
+    display:flex;
+    justify-content:space-between;
+    margin-bottom:12px;
+}
+
+.skill-header h3{
+    font-size:24px;
+}
+
+.skill-header span{
+    color:#38bdf8;
+    font-size:24px;
+    font-weight:700;
+}
+
+.progress{
+    width:100%;
+    height:10px;
+
+    background:rgba(255,255,255,.08);
+
+    border-radius:50px;
+
+    overflow:hidden;
+}
+
+.progress-fill{
+    height:100%;
+
+    border-radius:50px;
+
+    background:linear-gradient(
+    90deg,
+    #22d3ee,
+    #3b82f6
+    );
+
+    box-shadow:
+    0 0 10px #38bdf8,
+    0 0 20px #38bdf8,
+    0 0 30px #38bdf8;
+}
+
+.canva{width:80%;}
+.blender{width:67%;}
+.htmlskill{width:67%;}
+.cpp{width:70%;}
+
+/* PROJECT */
+
+.project-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:25px;
+}
+
+.card{
+    background:rgba(255,255,255,.04);
+    border-radius:20px;
+    padding:25px;
+    border:1px solid rgba(56,189,248,.15);
+}
+
+.card h3{
+    color:#38bdf8;
+    margin-bottom:10px;
+}
+
+/* FOOTER */
+
+footer{
+    text-align:center;
+    padding:30px;
+    border-top:1px solid rgba(255,255,255,.1);
+}
+
+/* RESPONSIVE */
+
+@media(max-width:768px){
+
+.hero{
+    flex-direction:column;
+    text-align:center;
+}
+
+.bio-grid{
+    grid-template-columns:1fr;
+}
+
+.skill-item{
+    flex-direction:column;
+    text-align:center;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<nav>
+
+<div class="logo">&lt;/&gt;</div>
+
+<ul>
+<li><a href="#about">Tentang</a></li>
+<li><a href="#skill">Skill</a></li>
+<li><a href="#project">Tugas</a></li>
+<li><a href="#contact">Kontak</a></li>
+</ul>
+
+</nav>
+
+<section class="hero">
+
+<img src="foto.jpeg">
+
+<div class="hero-text">
+
+<h1>Halo, Saya <span>Az Zahra Putri Aulia</span></h1>
+
+<p>
+Mahasiswa Pendidikan Teknologi Informasi Universitas Lampung yang memiliki minat dalam bidang desain, pemrograman, dan pengembangan web.
+</p>
+
+</div>
+
+</section>
+
+<section id="about">
+
+<h2 class="title">Biodata</h2>
+
+<div class="glass">
+
+<div class="bio-grid">
+
+<div class="bio-item"><b>Nama</b><br>Az Zahra Putri Aulia</div>
+<div class="bio-item"><b>NPM</b><br>2513025038</div>
+<div class="bio-item"><b>Program Studi</b><br>Pendidikan Teknologi Informasi</div>
+<div class="bio-item"><b>Universitas</b><br>Universitas Lampung</div>
+<div class="bio-item"><b>Email</b><br>2513025038@students.ac.id </div>
+<div class="bio-item"><b>Alamat</b><br>Bandar Lampung </div>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="skill">
+
+<p class="skill-sub">SKILL</p>
+
+<h2 class="title">Kemampuan <span>Saya</span></h2>
+
+<p class="skill-desc">
+Beberapa kemampuan yang saya kuasai dalam bidang desain, pemodelan 3D, pemrograman, dan pengembangan web.
+</p>
+
+<div class="skills-container">
+
+<div class="skill-item">
+
+<div class="icon-circle">
+<img src="canva.png">
+</div>
+
+<div class="skill-content">
+
+<div class="skill-header">
+<h3>Canva</h3>
+<span>80%</span>
+</div>
+
+<div class="progress">
+<div class="progress-fill canva"></div>
+</div>
+
+</div>
+
+</div>
+
+<div class="skill-item">
+
+<div class="icon-circle">
+<img src="blender.png">
+</div>
+
+<div class="skill-content">
+
+<div class="skill-header">
+<h3>Blender</h3>
+<span>67%</span>
+</div>
+
+<div class="progress">
+<div class="progress-fill blender"></div>
+</div>
+
+</div>
+
+</div>
+
+<div class="skill-item">
+
+<div class="icon-circle">
+<img src="html.png">
+</div>
+
+<div class="skill-content">
+
+<div class="skill-header">
+<h3>HTML</h3>
+<span>67%</span>
+</div>
+
+<div class="progress">
+<div class="progress-fill htmlskill"></div>
+</div>
+
+</div>
+
+</div>
+
+<div class="skill-item">
+
+<div class="icon-circle">
+<img src="cpp.png">
+</div>
+
+<div class="skill-content">
+
+<div class="skill-header">
+<h3>C++</h3>
+<span>70%</span>
+</div>
+
+<div class="progress">
+<div class="progress-fill cpp"></div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="project">
+
+<h2 class="title">Kumpulan Tugas</h2>
+
+<div class="project-grid">
+
+<div class="card">
+<h3>Tugas 1 : Definisi Grafika Komputer</h3>
+ <a href="https://docs.google.com/forms/d/e/1FAIpQLSfn679uh5MITMzVhIBBxnqcB9WhLfNJuYzlMxx1RuHEEkPdDg/viewform"
+       target="_blank">
+       Lihat Tugas →
+    </a>
+</div>
+
+<div class="card">
+<h3>Tugas 2 : Sistem Grafika Komputer </h3>
+<p>Translasi, Rotasi, Scaling</p>
+</div>
+
+<div class="card">
+<h3>Tugas 3 : Algoritma Pembentukan Garis</h3>
+<p>Animasi Kubus 3D</p>
+</div>
+
+<div class="card">
+<h3>Tugas 4 : Algoritma Pembentukan Lingkaran</h3>
+<p>Graf Euler dan Hamilton</p>
+</div>
+
+<div class="card">
+<h3>Tugas 5 : Algoritma Pembentukan Kurva Bzier</h3>
+<p>Graf Euler dan Hamilton</p>
+</div>
+
+<div class="card">
+<h3>Quiz 1</h3>
+<a href= "https://youtu.be/HZO0nZBQyEk?si=KhyJFQGeO2ds2qgl"
+       target="_blank">
+       Lihat Tugas →
+    </a>
+</div>
+
+<div class="card">
+    <h3>Quiz 2</h3>
+    <a href="https://youtu.be/wPbYRampurw?si=qycEzAl6rno_t-V5"
+       target="_blank">
+       Lihat Tugas →
+    </a>
+</div>
+
+<div class="card">
+<h3>Quiz 3</h3>
+<a href= "https://youtu.be/N-2FLmhwj9I?si=-KtfKz2MfIEpENm1"
+       target="_blank">
+       Lihat Tugas →
+    </a>
+</div>
+
+<div class="card">
+<h3>Quiz 4</h3>
+<a href="https://youtu.be/Vs0nh3_EfeA?si=t1KoaMeKrVpbcrmg"
+   target="_blank">
+   Lihat Tugas →
+</a>
+</div>
+
+<div class="card">
+<h3>Tugas Mandiri : Game</h3>
+<a href="https://zazazaza-ui.github.io/PROYEK-AKHIR-AZ-ZAHRA-PUTRI-AULIA/"
+   target="_blank">
+   Lihat Tugas →
+</a>
+</div>
+
+</div>
+
+</section>
+
+<section id="contact">
+
+<h2 class="title">Kontak</h2>
+
+<div class="glass">
+<p>Email : 2513025038@students.unila.ac.id</p>
+<p>Instagram : @zzhraulr</p>
+<p>GitHub : github.com/zazazaza </p>
+</div>
+
+</section>
+
+<footer>
+© 2026 Portfolio Mahasiswa
+</footer>
+
+</body>
+</html>
